@@ -65,13 +65,11 @@ class HeaderBar extends StatelessWidget implements PreferredSizeWidget {
                             children: [
                               Text(title,
                                   style: const TextStyle(
-                                      fontFamily: 'DINPro',
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white,
                                       fontSize: 14)),
                               Text(phone,
                                   style: const TextStyle(
-                                      fontFamily: 'DIN2014',
                                       fontWeight: FontWeight.normal,
                                       color: Colors.white,
                                       fontSize: 18))
