@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:header_bar/header_bar.dart';
+import 'package:header_bar/date_picker.dart';
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,20 +31,29 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  DateTime _dateValue = DateTime.now();
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  ValueChanged<DateTime?> _valueChangedHandler() {
+    return (value) => setState(() => _dateValue = value!);
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: HeaderBar(
+    return Scaffold(
+      appBar: const HeaderBar(
         title: 'Technische Hotline',
         phone: '0800 123 456 78',
+      ),
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            DatePicker(
+              onChanged: _valueChangedHandler(),
+            ),
+            Text(DateFormat().addPattern('dd.MM.y').format(_dateValue))
+          ],
+        ),
       )
     );
   }
