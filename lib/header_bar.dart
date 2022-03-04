@@ -22,6 +22,8 @@ const logoWidth = 140.00;
 const iconWidth = 42.00;
 
 const containerHeight = 58.00;
+const containerWidth = double.infinity;
+
 class HeaderBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final String phone;
@@ -45,7 +47,7 @@ class HeaderBar extends StatelessWidget implements PreferredSizeWidget {
         decoration: containerDecoration,
         height: containerHeight,
         padding: getPadding(context),
-        width: double.infinity,
+        width: containerWidth,
         child: Stack(
           children: [
             Row(
