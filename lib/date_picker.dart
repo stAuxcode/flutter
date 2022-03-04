@@ -36,42 +36,30 @@ class _DatePicker extends State<DatePicker> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 618,
-      height: 64,
-      decoration: BoxDecoration(
-          color: backgroundColor,
-          border: Border.all(
-            width: 1,
-            color: borderColor
-          ),
-          borderRadius: const BorderRadius.all(Radius.circular(9))
-      ),
-      child: Stack(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Padding(
-                  padding: const EdgeInsets.only(top: 17, bottom: 17, left: 16),
-                  child: Text(DateFormat().addPattern('dd.MM.y').format(selectedDate),
-                      style: const TextStyle(color: textColor, fontSize: 20)))
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Padding(
-                  padding: const EdgeInsets.only(top: 21, bottom: 25, right: 18),
-                  child: GestureDetector(
-                    onTap: () => _selectDate(context), // Image tapped
-                    child: Image.asset(
-                      'icons-mobile-calendar.png',
-                    ),
-                  ))
-            ],
-          )
-        ],
-      ),
-    );
+        width: 618,
+        height: 64,
+        decoration: BoxDecoration(
+            color: backgroundColor,
+            border: Border.all(width: 1, color: borderColor),
+            borderRadius: const BorderRadius.all(Radius.circular(9))),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Padding(
+                padding: const EdgeInsets.only(top: 17, bottom: 17, left: 16),
+                child: Text(
+                    DateFormat().addPattern('dd.MM.y').format(selectedDate),
+                    style: const TextStyle(color: textColor, fontSize: 20))),
+            Padding(
+                padding: const EdgeInsets.only(top: 21, bottom: 25, right: 18),
+                child: GestureDetector(
+                  onTap: () => _selectDate(context),
+                  // Image tapped
+                  child: Image.asset(
+                    'icons-mobile-calendar.png',
+                  ),
+                ))
+          ],
+        ));
   }
 }
